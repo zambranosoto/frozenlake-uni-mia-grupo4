@@ -1,4 +1,15 @@
-# FrozenLake-v1 con Programación Dinámica
+# Maestría en Inteligencia Artificial
+## UNI 2024-2
+- **Curso:** Aprendizaje por Refuerzo
+- **Integrantes Grupo 4:**
+  - Acevedo Martínez, Ruddy.
+  - Fuertes Malca, Ayrton.
+  - Solíz Almerco, Ricardo.
+  - Vilcahuamán Dolorier, Dennis.
+  - Zamrano Soto, José.
+
+# Proyecto FrozenLake-v1
+
 
 ## Descripción del Proyecto
 Este proyecto implementa una solución al entorno **FrozenLake-v1** de la librería **Gymnasium** utilizando el método de **Programación Dinámica** (*Value Iteration*). El objetivo es encontrar la política óptima que permita al agente alcanzar la meta en un lago helado sin caer en huecos.
