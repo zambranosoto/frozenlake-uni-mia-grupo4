@@ -4,9 +4,10 @@ import gymnasium as gym
 
 def create_environment(map_size="4x4", render_mode=None):
     """
-    Crea y retorna el entorno FrozenLake-v1.
+    Descripción:
+        Crea y retorna el entorno FrozenLake-v1.
 
-    Args:
+    Parámetros de entrada:
         render_mode (str): Modo de renderización ('human', 'rgb_array', None).
 
     Returns:
