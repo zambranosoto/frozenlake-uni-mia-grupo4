@@ -13,9 +13,10 @@ from frozenlake.evaluation import evaluate_policy  # Función para evaluar la po
 
 def choose_environment_size():
     """
-    Interfaz gráfica para que el usuario elija el tamaño del entorno FrozenLake.
-    Al seleccionar una opción, se cierra la ventana y se llama a la función principal
-    para iniciar el entorno con el tamaño seleccionado.
+    Descripción:
+        Interfaz gráfica para que el usuario elija el tamaño del entorno FrozenLake.
+        Al seleccionar una opción, se cierra la ventana y se llama a la función principal
+        para iniciar el entorno con el tamaño seleccionado.
     """
     def on_selection(map_size):
         """
@@ -49,8 +50,9 @@ def choose_environment_size():
 
 def main_frozenlake(map_size):
     """
-    Función principal para entrenar y evaluar un agente en el entorno FrozenLake.
-    Args:
+    Descripción:
+        Función principal para entrenar y evaluar un agente en el entorno FrozenLake.
+    Parámetros de entrada:
         map_size (str): Tamaño del entorno ("4x4" o "8x8").
     """
     # Crear el entorno FrozenLake
@@ -79,7 +81,8 @@ def main_frozenlake(map_size):
 
 if __name__ == "__main__":
     """
-    Punto de entrada principal del programa.
-    Muestra la interfaz para elegir el tamaño del entorno y ejecuta el resto del código.
+    Descripción:
+        Punto de entrada principal del programa.
+        Muestra la interfaz para elegir el tamaño del entorno y ejecuta el resto del código.
     """
     choose_environment_size()
