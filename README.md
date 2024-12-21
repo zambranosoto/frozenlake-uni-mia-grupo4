@@ -55,6 +55,14 @@ El programa incluye una **pantalla de selección de entorno** que permite al usu
    git clone https://github.com/zambranosoto/frozenlake-uni-mia-grupo4.git
    cd frozenlake-uni-mia-grupo4
 
+2. **Dependencia de librerías**:
+  ```plaintext
+  gymnasium==0.27.1       # Librería para crear y manejar entornos de aprendizaje por refuerzo
+  matplotlib==3.7.1       # Para graficar mapas de calor y curvas de convergencia
+  numpy==1.25.0           # Operaciones numéricas
+  tk==0.1.0               # Interfaz gráfica (tkinter)
+  ```
+
 ## Resultados Generados:
 
 - **Gráfica de convergencia:** results/convergence.png
