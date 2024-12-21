@@ -2,7 +2,7 @@
 import gymnasium as gym
 
 
-def create_environment(render_mode=None):
+def create_environment(map_size="4x4", render_mode=None):
     """
     Crea y retorna el entorno FrozenLake-v1.
 
@@ -12,5 +12,5 @@ def create_environment(render_mode=None):
     Returns:
         env: Instancia del entorno Gymnasium.
     """
-    env = gym.make("FrozenLake-v1", is_slippery=True, render_mode=render_mode)
+    env = gym.make("FrozenLake-v1", map_name=map_size, is_slippery=True, render_mode=render_mode)
     return env
