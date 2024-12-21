@@ -1,4 +1,4 @@
 Métricas de Evaluación:
-Tasa de Éxito: 50.00%
-Pasos Promedio: 68.00
-Recompensa Promedio: 0.50
+Tasa de Éxito: 100.00%
+Pasos Promedio: 42.30
+Recompensa Promedio: 1.00

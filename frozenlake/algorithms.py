@@ -23,36 +23,6 @@ def compute_action_values(env, state, V, gamma):
             action_values[action] += prob * (reward + gamma * V[next_state])
     return action_values
 
-def update_value_function(env, V, gamma, theta):
-    """
-    Descripción:
-        Itera sobre la función de valor hasta la convergencia usando Iteración de Valores.
-
-    Parámetros de entrada:
-        env: Entorno de Gymnasium.
-        V: Función de valor inicial (array 1D).
-        gamma: Factor de descuento (float).
-        theta: Umbral para determinar la convergencia (float).
-
-    Returns:
-        V: Función de valor óptima (array 1D).
-    """
-
-    while True:
-        delta = 0  # Cambio máximo entre iteraciones
-        for state in range(env.observation_space.n):
-            # Calcula los valores de acción para el estado actual
-            action_values = compute_action_values(env, state, V, gamma)
-            max_value = max(action_values)
-            # Calcula el cambio absoluto máximo
-            delta = max(delta, abs(max_value - V[state]))
-            # Actualiza la función de valor para el estado actual
-            V[state] = max_value
-        # Verifica si el cambio máximo es menor que el umbral para detener la iteración
-        if delta < theta:
-            break
-    return V
-
 def extract_policy(env, V, gamma=0.99):
     """
     Descripción:
