@@ -18,6 +18,12 @@ FrozenLake es un entorno de aprendizaje por refuerzo en el que el agente se muev
 
 ---
 
+## Funcionalidad Principal
+
+El programa incluye una **pantalla de selección de entorno** que permite al usuario elegir entre una cuadrícula de **4x4** o **8x8** para FrozenLake. Esta funcionalidad facilita explorar y probar diferentes configuraciones del entorno antes de iniciar el entrenamiento y la evaluación.
+
+---
+
 ## Objetivos
 - Implementar el método de **Iteración de Valores** (Value Iteration) para resolver el entorno FrozenLake-v1.
 - Obtener la **política óptima** y probarla en múltiples episodios.
@@ -28,15 +34,17 @@ FrozenLake es un entorno de aprendizaje por refuerzo en el que el agente se muev
 
 ## Estructura del Proyecto
 
-- ├── frozenlake/
-- │ ├── init.py # Inicializa el paquete. 
-- │ ├── environment.py # Configuración y funciones relacionadas con el entorno. 
-- │ ├── algorithms.py # Implementaciones de programación dinámica (value iteration). 
-- │ ├── utils.py # Funciones de utilidad (guardar/cargar política, visualizaciones). 
-- │ ├── evaluation.py # Código para probar políticas y generar indicadores. 
-- ├── main.py # Punto de entrada principal para ejecutar el programa. 
-- └── README.md # Documentación del proyecto.
-  - ├── results/  
+```plaintext
+├── frozenlake/
+│   ├── __init__.py         # Inicializa el paquete.
+│   ├── environment.py      # Configuración y funciones relacionadas con el entorno.
+│   ├── algorithms.py       # Implementaciones de programación dinámica (value iteration).
+│   ├── utils.py            # Funciones de utilidad (guardar/cargar política, visualizaciones).
+│   ├── evaluation.py       # Código para probar políticas y generar indicadores.
+├── main.py                 # Punto de entrada principal para ejecutar el programa.
+├── results/                # Carpeta donde se almacenan los gráficos y resultados.
+└── README.md               # Documentación del proyecto. 
+```
 
 ---
 
