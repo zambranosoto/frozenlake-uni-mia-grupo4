@@ -8,7 +8,7 @@
   - Vilcahuamán Dolorier, Dennis.
   - Zamrano Soto, José.
 
-# Proyecto FrozenLake-v1
+# Proyecto: Resolución del FrozenLake-v1 con Programación Dinámica
 
 
 ## Descripción del Proyecto
@@ -29,6 +29,94 @@ El programa incluye una **pantalla de selección de entorno** que permite al usu
 - Obtener la **política óptima** y probarla en múltiples episodios.
 - Generar indicadores de desempeño, como el **número promedio de pasos**, la **tasa de éxito**, y el **promedio de recompensa por episodio**.
 - Visualizar los resultados a través de gráficos y tablas para mostrar cómo el agente converge a la política óptima.
+
+---
+
+# 1. Modelado del Problema
+
+## Definición del entorno
+**FrozenLake-v1** es un entorno de aprendizaje por refuerzo donde un agente debe navegar por una cuadrícula helada para alcanzar un objetivo, evitando caer en huecos. El entorno puede ser de tamaño **4x4** o **8x8**, y está representado como un espacio de estados finito.
+No hay un **"oponente"** explícito, pero la **estocasticidad** en las transiciones del entorno puede considerarse como un factor adverso.
+
+## Modelado de estados y acciones
+
+### - Estados:
+Los estados están definidos por la posición del agente en la cuadrícula. En un entorno de tamaño n×n, hay n2 estados posibles. Cada celda puede ser:
+- Inicio (S)
+- Meta (G)
+- Camino seguro (F)
+- Hueco (H)
+
+### - Acciones:
+El agente puede realizar cuatro acciones:
+- 0: Moverse hacia la izquierda
+- 1: Moverse hacia abajo
+- 2: Moverse hacia la derecha
+- 3: Moverse hacia arriba
+
+### - Transiciones:
+El entorno es estocástico; es decir, las acciones tienen una probabilidad de no ejecutarse de manera exacta, desviando al agente hacia direcciones no deseadas.
+
+# 2. Solución
+## Método utilizado
+Se utilizó Programación Dinámica mediante el algoritmo de Iteración de Valores (Value Iteration). Este método calcula la función de valor
+V(s) para cada estado, actualizándola iterativamente hasta la convergencia. Una vez que
+V(s) converge, se extrae la política óptima π(s) que maximiza la recompensa esperada.
+
+### - Ecuación de Iteración de Valores:
+$$
+V(s) \leftarrow \max_a \sum_{s'} P(s' \mid s, a) \left[ R(s, a, s') + \gamma V(s') \right]
+$$
+> Donde:
+> - P(s′∣s,a) es la probabilidad de transición al estado s′ desde s al realizar la acción a.
+> - R(s,a,s′) es la recompensa por esa transición. 
+> - 𝛾 es el factor de descuento.
+
+## Implementación y ejecución
+El algoritmo fue implementado en Python utilizando la librería **Gymnasium** para el entorno y herramientas adicionales para la visualización y evaluación. La política óptima fue evaluada en múltiples episodios para medir su desempeño.
+
+# 3. Resultados
+## Evaluación
+- **Tasa de éxito:** El agente alcanzó la meta en un X% de los episodios evaluados. 
+- **Recompensa promedio:** Recompensa acumulada obtenida en cada episodio, entre la cantidad de episodios evaluados.
+- **Pasos promedio:** Cantidad de Pasos acumulados dio el agente en cada episidio hasta de llegar a un estado terminal: Hueco(H) o Meta(G), entre la cantidad de episodios evaluados.
+
+## Visualizaciones
+- **Convergencia:** Se generó una gráfica que muestra cómo la función de valor converge tras cada iteración.
+![Convergencia](/results/convergence.png)
+
+
+- **Mapa de calor de la política:** Ilustra las acciones preferidas en cada estado según la política óptima. Donde las acciones posibles son:
+  - 0: Izquierda 
+  - 1: Abajo 
+  - 2: Derecha 
+  - 3: Arriba
+
+  ![Mapa de calor de la política](/results/policy_heatmap.png)
+
+
+- **Recompensas promedio:** Presenta la evolución de las recompensas obtenidas por el agente durante los episodios de evaluación.
+![Recompensas promedio](/results/average_rewards.png)
+
+
+- **Mapa de Calor de los Valores de los Estados:** muestra el mapa de calor de los valores calculados para cada estado del entorno.
+![Mapa de Calor de los Valores de los Estados](/results/value_heatmap.png)
+
+# 4. Análisis
+## Interpretación de los resultados
+- **Convergencia:** La función de valor V(s) convergió rápidamente debido a la naturaleza pequeña del entorno.
+- **Tasa de éxito:** Aunque la política es óptima, la estocasticidad del entorno afecta el desempeño, lo que explica que en algunos episodios el agente caiga en huecos.
+- **Recompensa promedio:** Refleja el balance entre episodios exitosos y no exitosos.
+
+## Comparaciones
+Se probó el entorno con diferentes tamaños 4×4 y 8×8:
+- En el tamaño **4×4**, la convergencia fue más rápida y el desempeño fue mejor debido a la menor complejidad del entorno.
+- En el tamaño **8×8**, el agente requirió más iteraciones y episodios para obtener un desempeño consistente.
+
+## Factores determinantes
+- **Estocasticidad del entorno:** El principal desafío para el agente es la imprevisibilidad de las transiciones. 
+- **Factor de descuento (𝛾):** Valores cercanos a 1 favorecen decisiones a largo plazo, mientras que valores menores priorizan recompensas inmediatas. 
+- **Tamaño del entorno:** Entornos más grandes requieren más tiempo de cómputo y episodios de evaluación.
 
 ---
 
@@ -63,35 +151,3 @@ El programa incluye una **pantalla de selección de entorno** que permite al usu
   numpy==1.25.0           # Operaciones numéricas
   tk==0.1.0               # Interfaz gráfica (tkinter)
   ```
-
-## Resultados Generados:
-
-- **Gráfica de convergencia:** results/convergence.png
-  - Esta gráfica muestra cómo disminuye el valor máximo de cambio (delta) en la función de valores con cada iteración, hasta alcanzar la convergencia. 
-    - El eje X representa el número de iteraciones. 
-    - El eje Y muestra el valor máximo de cambio (delta).
-
-
-- **Mapa de calor de la política:** results/policy_heatmap.png
-  - Este mapa de calor ilustra la política óptima aprendida. 
-  - Cada celda representa la acción preferida por el agente en un estado dado.ç
-  - Acciones posibles:
-    - 0: Izquierda 
-    - 1: Abajo 
-    - 2: Derecha 
-    - 3: Arriba
-
-
-- **Recompensas promedio:** results/average_rewards.png
-  - Esta gráfica muestra el promedio de recompensas obtenidas por el agente a lo largo de múltiples episodios de prueba. 
-    - El eje X representa los episodios. 
-    - El eje Y muestra la recompensa promedio.
-
-
-- **Métricas:** results/metrics.txt
-  - Las métricas obtenidas durante la evaluación se guardan en el archivo results/metrics.txt.
-  - Ejemplo de Métricas de Evaluación:
-    - Tasa de Éxito: 100.00% 
-    - Pasos Promedio: 12.34 
-    - Recompensa Promedio: 0.90
-
