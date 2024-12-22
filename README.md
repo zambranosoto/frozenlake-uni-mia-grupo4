@@ -136,14 +136,15 @@ Se probó el entorno con diferentes tamaños 4×4 y 8×8:
 
 ---
 
-## Instalación
+# 5. Instalación
 
-1. **Clona el repositorio**:
+## **Clonar el repositorio**:
    ```bash
    git clone https://github.com/zambranosoto/frozenlake-uni-mia-grupo4.git
    cd frozenlake-uni-mia-grupo4
+   ```
 
-2. **Dependencia de librerías**:
+## **Dependencia de librerías**:
   ```plaintext
   gymnasium==0.27.1       # Librería para crear y manejar entornos de aprendizaje por refuerzo
   pygame==2.1.3           # reemplaza con la versión que prefieras
