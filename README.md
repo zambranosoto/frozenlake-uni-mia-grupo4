@@ -4,9 +4,9 @@
 - **Integrantes Grupo 4:**
   - Acevedo Martínez, Ruddy.
   - Fuertes Malca, Ayrton.
-  - Solíz Almerco, Ricardo.
+  - Solís Almerco, Ricardo.
   - Vilcahuamán Dolorier, Dennis.
-  - Zamrano Soto, José.
+  - Zambrano Soto, José.
 
 # Proyecto: Resolución del FrozenLake-v1 con Programación Dinámica
 
