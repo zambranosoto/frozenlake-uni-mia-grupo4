@@ -38,6 +38,12 @@ El programa incluye una **pantalla de selección de entorno** que permite al usu
 **FrozenLake-v1** es un entorno de aprendizaje por refuerzo donde un agente debe navegar por una cuadrícula helada para alcanzar un objetivo, evitando caer en huecos. El entorno puede ser de tamaño **4x4** o **8x8**, y está representado como un espacio de estados finito.
 No hay un **"oponente"** explícito, pero la **estocasticidad** en las transiciones del entorno puede considerarse como un factor adverso.
 
+### Entorno 4x4:
+![Entorno 4x4](/frozenlake/img/4x4.png)
+
+### Entorno 8x8:
+![Entorno 8x8](/frozenlake/img/8x8.png)
+
 ## Modelado de estados y acciones
 
 ### - Estados:
